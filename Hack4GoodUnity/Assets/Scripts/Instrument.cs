@@ -41,8 +41,7 @@ public class Instrument
                 {
                     if(counter.LastBeatTime - m.TimeStamp < beatThreshold)
                     {
-                        Debug.Log(m);
-                        // play the note.
+                        PlayNote(m);
                     }
                     messages.Dequeue();
                 }
@@ -50,8 +49,7 @@ public class Instrument
                 {
                     if(m.TimeStamp - counter.LastBeatTime < beatThreshold)
                     {
-                        Debug.Log(m);
-                        // play the note.
+                        PlayNote(m);
                     }
                     messages.Dequeue();
                 }
@@ -62,12 +60,16 @@ public class Instrument
             }
             else
             {
-                Debug.Log(m);
-                // play the note.
+                PlayNote(m);
                 messages.Dequeue();
             }
         }
 	}
+
+    private void PlayNote(MessageInfo note)
+    {
+        Debug.Log(note);
+    }
 
     public void AddMessage(Message message)
     {

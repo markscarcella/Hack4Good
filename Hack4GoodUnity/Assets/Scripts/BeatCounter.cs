@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System;
 
 public class BeatCounter : MonoBehaviour
@@ -20,6 +19,7 @@ public class BeatCounter : MonoBehaviour
 
     public void Start()
     {
+        BeatCount = 0;
         LastBeatTime = Time.time;
         NextBeatTime = LastBeatTime + TimeSpan.FromMinutes(1.0 / BeatsPerMinute).TotalSeconds;
 	}
