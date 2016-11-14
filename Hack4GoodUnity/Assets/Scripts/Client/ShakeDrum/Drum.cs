@@ -14,11 +14,11 @@ public class Drum : MonoBehaviour {
 	private Vector3 acceleration;
 	private Vector3 deltaAcceleration;
 
-	ClientManager clientManager;
+	NetworkManager networkManager;
 
 	void Start()
 	{
-		clientManager = GameObject.Find("ClientManager").GetComponent<ClientManager>();
+		networkManager = GameObject.Find("NetworkManager").GetComponent<NetworkManager>();
 		lowPassFilterFactor = accelerometerUpdateInterval / lowPassKernelWidthInSeconds;
 		lowPassValue = Vector3.zero;
 		shakeDetectionThreshold *= shakeDetectionThreshold;
@@ -34,7 +34,7 @@ public class Drum : MonoBehaviour {
 		{
 			byte velocity = (byte)map(deltaAcceleration.sqrMagnitude, shakeDetectionThreshold, 10.0f, 0, 255);
 			Message message = new Message(InstrumentType.Drum, Note.Tuned, velocity);
-			clientManager.PlayNoteVelocity(message);
+			networkManager.PlayNote(message.ToString());
 		}
 	}
 
