@@ -53,7 +53,7 @@ public class ContollerKinect : MonoBehaviour {
 	{
 		if (leftHand.position.y < hip.position.y && noteLeftHand == null)
 		{
-			noteLeftHand = Instantiate (notes [Random.Range(0,2)], leftHand.position, Quaternion.identity) as GameObject;
+			noteLeftHand = Instantiate (notes [Random.Range(0,3)], leftHand.position, Quaternion.identity) as GameObject;
 		}
 
 		if (leftHand.position.y > head.position.y && noteLeftHand != null)
@@ -72,7 +72,7 @@ public class ContollerKinect : MonoBehaviour {
 	{
 		if (rightHand.position.y < hip.position.y && noteRightHand == null)
 		{
-			noteRightHand = Instantiate (notes [Random.Range(0,2)], rightHand.position, Quaternion.identity) as GameObject;
+			noteRightHand = Instantiate (notes [Random.Range(0,3)], rightHand.position, Quaternion.identity) as GameObject;
 
 		}
 
