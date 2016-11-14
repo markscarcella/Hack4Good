@@ -3,6 +3,7 @@ using System.Collections;
 
 public class BarProgress : MonoBehaviour {
 
+	NetworkManager networkManager;
 	BeatCounter beatCounter;
 
 	float height;
@@ -12,6 +13,8 @@ public class BarProgress : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		networkManager = GameObject.Find("NetworkManager").GetComponent<NetworkManager>();
+
 		beatCounter = GameObject.Find("BeatCounter").GetComponent<BeatCounter>();
 		beatCounter.Start();
 
@@ -34,6 +37,7 @@ public class BarProgress : MonoBehaviour {
 			{
 				int note = (int)Camera.main.WorldToScreenPoint(contact.point).y * 8 / Screen.height;
 				Message message = new Message(InstrumentType.Drum, scale[note], 128);
+				networkManager.PlayNote(message.ToString());
 			}
 		}
 	}
