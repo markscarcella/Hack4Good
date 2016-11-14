@@ -100,9 +100,13 @@ public class NetworkManager : MonoBehaviour {
 	{
 		if(Network.isServer)
 		{
-			if(info == "test")
-				GetComponent<AudioSource>().Play();
-		}
+			//var m = Message.FromString (info);	
+			// drum|100|109
+			if (info == "test")
+			{
+				//GetComponent<AudioSource> ().Play ();
 
+			}
+		}
 	}
 }
