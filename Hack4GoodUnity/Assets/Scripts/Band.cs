@@ -4,8 +4,6 @@ using System.Linq;
 
 public class Band : MonoBehaviour
 {
-    BeatCounter counter = new BeatCounter();
-
     private Instrument[] instruments = new Instrument[Enum.GetValues(typeof(InstrumentType)).OfType<InstrumentType>().Cast<int>().Max()];
 
 	public void Start()
@@ -14,12 +12,11 @@ public class Band : MonoBehaviour
         {
             instruments[i] = new Instrument((InstrumentType)i);
         }
-        counter.Start();
 	}
 	
 	public void Update()
     {
-        counter.Update();
+        var counter = GameObject.Find("BeatCounter").GetComponent<BeatCounter>();
         for(int i = 0; i < instruments.Length; i++)
         {
             instruments[i].Update(counter, TimeSpan.FromMinutes(counter.BeatSync / counter.BeatsPerMinute).TotalSeconds);
