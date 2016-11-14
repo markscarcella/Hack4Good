@@ -32,7 +32,7 @@ function Start()
 	else
 		Network.Connect(PlayerPrefs.GetString("IP"),port);
 		
-	Cursor.visible = false;
+	//Cursor.visible = false;
 	
 }
 
