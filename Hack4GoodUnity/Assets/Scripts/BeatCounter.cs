@@ -17,6 +17,14 @@ public class BeatCounter : MonoBehaviour
     public double LastBeatTime;
     public double NextBeatTime;
 
+    public double BarLength
+    {
+        get
+        {
+            return BeatsPerBar * TimeSpan.FromMinutes(1.0 / BeatsPerMinute).TotalSeconds;
+        }
+    }
+
     public void Start()
     {
         BeatCount = 0;
