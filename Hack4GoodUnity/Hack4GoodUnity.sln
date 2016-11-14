@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 
 Project("{DB6B5D5F-AF58-815E-02A7-74DA320DA3A4}") = "Hack4GoodUnity", "Assembly-CSharp.csproj", "{83A728BF-F811-D443-A165-CE6E4BD4991A}"
 EndProject
+Project("{DB6B5D5F-AF58-815E-02A7-74DA320DA3A4}") = "Hack4GoodUnity", "Assembly-UnityScript.unityproj", "{3C638B6B-1271-9137-AD5D-2871D015A7D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{83A728BF-F811-D443-A165-CE6E4BD4991A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83A728BF-F811-D443-A165-CE6E4BD4991A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83A728BF-F811-D443-A165-CE6E4BD4991A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C638B6B-1271-9137-AD5D-2871D015A7D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C638B6B-1271-9137-AD5D-2871D015A7D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C638B6B-1271-9137-AD5D-2871D015A7D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C638B6B-1271-9137-AD5D-2871D015A7D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
