@@ -121,6 +121,12 @@ function ChangeColor()
 	cubeChange.GetComponent.<Renderer>().material.color = Color.green;
 }
 
+@RPC
+function PlaySound()
+{
+	//GetComponent<AudioSource>().Play();
+}
+
 function OnServerInitialized()
 {
 	Debug.Log("Server Initialized");
