@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class ClientManager : MonoBehaviour {
+
+	public Text debugOnScreen;
 
 	// Use this for initialization
 	void Start () {
@@ -13,13 +16,9 @@ public class ClientManager : MonoBehaviour {
 	
 	}
 
-	public void Connect()
-	{
-		// connect to server with instrument type
-	}
-
-	public void PlayNoteVelocity(float note, float velocity)
+	public void PlayNoteVelocity(Message message)
 	{
 		// send note and velocity to server
+		debugOnScreen.text = message.ToString();
 	}
 }
