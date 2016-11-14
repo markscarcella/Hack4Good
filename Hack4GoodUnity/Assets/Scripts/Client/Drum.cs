@@ -14,12 +14,8 @@ public class Drum : MonoBehaviour {
 	private Vector3 acceleration;
 	private Vector3 deltaAcceleration;
 
-	ClientManager clientManager;
-
 	void Start()
 	{
-		clientManager = GameObject.Find("ClientManager");
-
 		lowPassFilterFactor = accelerometerUpdateInterval / lowPassKernelWidthInSeconds;
 		lowPassValue = Vector3.zero;
 		shakeDetectionThreshold *= shakeDetectionThreshold;
@@ -33,7 +29,13 @@ public class Drum : MonoBehaviour {
 		deltaAcceleration = acceleration - lowPassValue;
 		if (deltaAcceleration.sqrMagnitude >= shakeDetectionThreshold)
 		{
-			clientManager.PlayNoteVelocity(0.0f, deltaAcceleration.sqrMagnitude);
+			byte velocity = (byte)map(deltaAcceleration.sqrMagnitude, shakeDetectionThreshold, 10.0f, 0, 255);
+			Message message = new Message(InstrumentType.Drum, Note.Tuned, velocity);
 		}
+	}
+
+	float map(float s, float a1, float a2, float b1, float b2)
+	{
+		return b1 + (s-a1)*(b2-b1)/(a2-a1);
 	}
 }
