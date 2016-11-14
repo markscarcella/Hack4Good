@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BarProgress : MonoBehaviour {
 
-	NetworkManager networkManager;
+	public NetworkManager networkManager;
 	BeatCounter beatCounter;
 
 	float height;
@@ -37,7 +37,8 @@ public class BarProgress : MonoBehaviour {
 			{
 				int note = (int)Camera.main.WorldToScreenPoint(contact.point).y * 8 / Screen.height;
 				Message message = new Message(InstrumentType.Drum, scale[note], 128);
-				networkManager.PlayNote(message.ToString());
+				Debug.Log(message.ToString());
+				networkManager.GetComponent<NetworkView>().RPC("PlayNote", RPCMode.Server, message.ToString());
 			}
 		}
 	}
