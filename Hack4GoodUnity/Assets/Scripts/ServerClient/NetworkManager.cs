@@ -83,6 +83,11 @@ public class NetworkManager : MonoBehaviour
         }
     }
 
+    public void PlayNote(Message message)
+    {
+        PlayNote(message.ToString());
+    }
+
     [RPC]
     public void PlayNote(string message)
     {
